@@ -19,8 +19,8 @@
 # Define the get_grade method with (array) as its parameter.
 #   Set sum equal to 0.
 #   Iterate through Array using the each method passing a block {|index| sum is equal to sum plus index}
-#   Set average equal to the sum as a float divided by the lenght of the array.
 #   Output sum.
+#   Set average equal to the sum as a float divided by the length of the array.
 #   Create a case for average.
 #     When average is between 90 and 100 then output "A".
 #     When average is between 80 and  90 then output "B".
@@ -33,6 +33,20 @@
 
 # 2. Initial Solution
 
+def get_grade(array)
+  sum = 0
+  array.each {|i| sum += i}
+  sum
+  average = sum.to_f / array.length
+  case average
+    when 90..100 then "A"
+    when 80..90 then "B"
+    when 70..80 then "C"
+    when 60..70 then "D"
+    when 0..60 then "F"
+    else "error"
+  end
+end
 
 
 
