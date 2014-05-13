@@ -48,10 +48,28 @@ def get_grade(array)
   end
 end
 
-
-
 # 3. Refactored Solution
 
+# Simplified the average by using the enumerbale inject method. I could refactor farther to have the
+# case = array.inject(:+).to_f / array.length but felt it was easier to understand this way.
 
+def get_grade(array)
+  average = array.inject(:+).to_f / array.length
+  case average
+    when 90..100 then "A"
+    when 80..90 then "B"
+    when 70..80 then "C"
+    when 60..70 then "D"
+    when 0..60 then "F"
+    else "error"
+  end
+end
 
-# 4. Reflection 
+# 4. Reflection
+
+# Having worked on a similar challenge in the past made this pretty straight forward. I first solved for 
+# the average then converted that into the  letter grade. I used a case rather the if/elsif to simplify 
+# the process.
+
+# I’m confident with the Learning Competencies. I continue to enjoy the testing process and thinking about 
+# overcoming the errors prior to writing any code. 
