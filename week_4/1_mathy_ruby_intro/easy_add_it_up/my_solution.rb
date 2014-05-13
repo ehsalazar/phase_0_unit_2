@@ -49,6 +49,27 @@ end
 
 # 3. Refactored Solution
 
+# The total method can be simplified using the enumerables inject method with a symbol passed in.
+
+def total(array)
+  array.inject(:+)
+end
+
+# The sentence_maker method can be simplified by joining all the calls into one line.
+
+def sentence_maker(array)
+  array.join(" ").capitalize << "."
+end
 
 
 # 4. Reflection 
+
+# These two were pretty straight forward. I was able to establish the pseudocode and initial solution 
+# rather quickly. I had to research and play a bit with the refactored code but in the end, it to 
+# passed all tests. 
+
+# One challenge that remains is with pseudocode. When I see what I’m testing for, I’m inclined to write 
+# the initial code first. I then find myself converting that initial code into the pseudocode. 
+
+# Though I went about it differently, I do feel confident in the Learning Competencies. I’m becoming 
+# more and more familiar and comfortable with the test aspect.
