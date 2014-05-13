@@ -32,8 +32,19 @@
 
 # 2. Initial Solution
 
-
-
+def mode(array)
+  count = Hash.new(0)
+  array.each do |i|
+  	count[i] += 1
+  end
+  mode_array = []
+  count.each do |k, v|
+  	if v == count.values.max 
+  	  mode_array << k
+  	end
+  end
+  mode_array.sort 
+end
 
 # 3. Refactored Solution
 
