@@ -19,7 +19,7 @@
 #   Slice array down into sets of 4, passing a block that looks at each set and then shovel those sets into groups array
 #   If the last set in groups array is less than 3
 #     Set index to 0
-#     Loop through groups array the number of times as the last sets size and do
+#     Loop through groups array until the index is greater than the size of last set.
 #       Groups|index| gets shoveled the last element of the last set using pop
 #       Increment index by 1
 #     End loop
@@ -28,11 +28,22 @@
 #   Output or return the groups
 # End method.
 
-
-
 # 3. Initial Solution
 
-
+def accountability_groups(array)
+  groups = []
+  array.shuffle!
+  array.each_slice(4) {|set| groups << set} 
+  if groups[-1].size < 3
+    i = 0
+    until i > groups[-1].size
+      groups[i] << groups[-1].pop
+      i += 1
+    end
+  end
+  groups.delete_if {|set| set.size == 0}
+  p groups
+end
 
 # 4. Refactored Solution
 
