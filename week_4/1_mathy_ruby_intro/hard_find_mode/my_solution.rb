@@ -26,7 +26,7 @@
 #       Shovel the key into the mode_array
 #     End if statement
 #   End loop
-#   Output the mode_array sorted by highest occurance.
+#   Output the mode_array sorted by highest occurrence.
 # End method 
 
 
@@ -56,4 +56,12 @@ def mode(array)
   mode_array.sort
 end
 
-# 4. Reflection 
+# 4. Reflection
+
+# Working on this challenge was enjoyable. The easy and medium challenges were rather quick but this one took a bit 
+# more thought and research. I liked that. At first I wasn't sure how to keep track of each element in the array and 
+# count for frequency. I came across the hash and was happy I could use it to track this. Once I had the hash built, 
+# then I had to figure out how to loop through it and output the key or elements that had the highest frequencies. 
+
+# I continue to enjoy the testing process and looking at the specific error messages. That helped point me in the right 
+# direction. I’m confident in the Learning Competencies and fell like this challenge pushed me more then the first two.
