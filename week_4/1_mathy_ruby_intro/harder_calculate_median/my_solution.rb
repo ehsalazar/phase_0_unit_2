@@ -4,7 +4,7 @@
 # include it in this file. Also make sure everything that isn't code
 # is commented in the file.  
 
-# I worked on this challenge with Jonathon Young.
+# I worked on this challenge with Jonathan Young.
 
 # 1. Pseudocode
 
@@ -23,9 +23,6 @@
 #  End if statement
 # End method
 
-
-
-
 # 2. Initial Solution
 
 def median(array)
@@ -38,10 +35,12 @@ def median(array)
   end
 end
 
-
-
 # 3. Refactored Solution
 
-
+def median(array)
+  array.sort!
+  midpoint = (array.length / 2)
+  array.length % 2 == 1 ? array[midpoint] : (array[midpoint -1] + array[midpoint]).to_f / 2
+end
 
 # 4. Reflection 
