@@ -48,6 +48,12 @@ end
 
 # 3. Refactored Solution
 
-
+def mode(array)
+  count = Hash.new(0)
+  array.each {|i| count[i] + 1}
+  mode_array = []
+  count.each {|k, v| mode_array << k if v== count.values.max}
+  mode_array.sort
+end
 
 # 4. Reflection 
