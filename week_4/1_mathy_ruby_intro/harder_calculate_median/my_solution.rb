@@ -28,7 +28,15 @@
 
 # 2. Initial Solution
 
-
+def median(array)
+  array.sort!
+  midpoint = (array.length / 2)
+  if array.length % 2 == 1
+    array[midpoint]
+  else
+    (array[midpoint -1] + array[midpoint]).to_f / 2
+  end
+end
 
 
 
