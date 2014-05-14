@@ -13,19 +13,28 @@
 # Output: Accountability groups of ideally 4 students each repeated but shuffled for three units.
 # Steps:
 
+# Define the accountabilty_groups methed taking (array) as its parameter
+#   Create a groups object that is equal to an empty array
+#   Permanently shuffle the array.
+#   Slice array down into sets of 4, passing a block that looks at each set and then shovel those sets into groups array
+#   If the last set in groups array is less than 3
+#     Set index to 0
+#     Loop through groups array the number of times as the last sets size and do
+#       Groups|index| gets shoveled the last element of the last set using pop
+#       Increment index by 1
+#     End loop
+#   End if statement
+#   Use enumerable method delete_if on groups passing a block that looks at each set and executes if the set sixe is equal to 0.
+#   Output or return the groups
+# End method.
+
 
 
 # 3. Initial Solution
 
 
 
-
 # 4. Refactored Solution
-
-
-
-
-
 
 
 
@@ -60,20 +69,16 @@ describe 'accountability_groups' do
     method(:accountability_groups).arity.should eq 1
   end
 
-  it "if array % 4 == 0, divides into equal groups" do
-  	accountability_groups(array_1).should eq "2 groups of 4"
+  it "shuffled the original array" do
+    accountability_groups(array_1).should_not eq [[1,2,3,4],[5,6,7,8]]
   end
 
   it "if array % 4 == 1, divides into groups of four with one group of five" do
-  	accountability_groups(array_2).should eq "1 group of 4 and 1 group of 5"
-  end
-
-  it "if array % 4 == 2, divides into groups of four with two group of five" do
-  	accountability_groups(array_3).should eq "2 groups of 5"
+  	accountability_groups(array_2).size.should eq 2
   end
 
   it "if array % 4 == 3, divides into groups of four with one group of three" do
-  	accountability_groups(array_4).should eq "2 groups of 4 and 1 group of 3"
+  	accountability_groups(array_4).size.should eq 3
   end
   
 end
