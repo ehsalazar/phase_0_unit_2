@@ -47,7 +47,17 @@ end
 
 # 4. Refactored Solution
 
-
+def accountability_groups(array)
+  groups = []
+  array.shuffle.each_slice(4) {|set| groups << set} 
+  if groups[-1].size < 3
+    i = 0
+    groups[-1].size.times {groups[i] << groups[-1].pop}
+    i += 1
+  end
+  groups.delete_if {|set| set.size == 0}
+  p groups
+end
 
 # 1. DRIVER TESTS GO BELOW THIS LINE
 
