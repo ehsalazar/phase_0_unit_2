@@ -40,7 +40,15 @@ end
 
 # 3. Refactored Solution
 
-
+class Array
+  def pad!(n, v = nil)
+  	(n - self.length).times {self.push(v)}
+  	self
+  end
+  def pad(n, v = nil)
+  	self.dup.pad!(n, v)
+  end
+end
 
 # 4. Reflection 
 
