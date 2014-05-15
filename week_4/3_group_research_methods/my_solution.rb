@@ -5,20 +5,29 @@ my_family_pets_ages = {"Evi" => 6, "Hoobie" => 3, "George" => 12, "Bogart" => 4,
             "Annabelle" => 0, "Ditto" => 3}
 
 # Person 1's solution
+
 def my_array_finding_method(source, thing_to_find)
-  # Your code here!
+  source.select {|i| i.to_s.include? thing_to_find}
 end
 
 def my_hash_finding_method(source, thing_to_find)
-  # Your code here!
+  match = []
+  source.select {|k, v| match.push(k) if v == thing_to_find}
+  match
 end
 
-# Identify and describe the ruby method you implemented. 
-# 
-#
-#
+# Identify and describe the ruby method you implemented.
+
+# I chose to utilize the select method. There were other options but select could be used on both the array and 
+# the hash. In the first method, select is passed a block that iterates through the array looking for elements that
+# include the thing to find. If include is true, those elements are returned in a new array. This leaves the original
+# array unaltered. In the second method, I create an empty array. Then, select is passed a block that iterates through 
+# the hash. If value is equal to the thing to find, then is corresponding key is pushed into the new empty array.
+# Finally, the new array is returned. The reason for creating the new array is two fold. First, the select method by
+# default returns a new hash but we wanted an array. Second, it leaves the original hash unaltered.
 
 # Person 2
+
 def my_array_modification_method(source, thing_to_modify)
   # Your code here!
 end
@@ -34,6 +43,7 @@ end
 
 
 # Person 3
+
 def my_array_sorting_method(source)
   # Your code here!
 end
@@ -49,6 +59,7 @@ end
 
 
 # Person 4
+
 def my_array_deletion_method(source, thing_to_delete)
   #Your code here!
 end
