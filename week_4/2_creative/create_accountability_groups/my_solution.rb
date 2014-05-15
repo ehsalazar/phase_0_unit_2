@@ -13,7 +13,7 @@
 # Output: Accountability groups of ideally 4 students each repeated but shuffled for three units.
 # Steps:
 
-# Define the accountabilty_groups methed taking (array) as its parameter
+# Define the accountabilty_groups method taking (array) as its parameter
 #   Create a groups object that is equal to an empty array
 #   Permanently shuffle the array.
 #   Slice array down into sets of 4, passing a block that looks at each set and then shovel those sets into groups array
@@ -106,5 +106,20 @@ end
 
 
 # 5. Reflection 
+
+# This one took some time. I was so focused on the shuffling and grouping into fours and completely forgot about breaking
+# the solution into three units. That said, since I did include shuffle in the method, if called two more times, each
+# output will be different. 
+
+# I'm becoming more familiar with the enumerable methods. I like what they do but still struggle to fully understand their
+# power. I'm also getting more comfortable in including blocks with some methods.
+
+# One of the more challenging aspects of this section was trying to figure out how to write the driver test code. I tried
+# to mimic the test code we've been exposed to so far. I had some success but also had to limit the actual number of tests 
+# because I couldn't figure out to declare or write exactly what I needed. 
+
+# I feel confident in the Learning Competencies and really like how these challenges are starting to push me beyond what 
+# I think I can do. Of course, the learning comes with a good dose of googling and looking for options to achieve my desired
+# outcomes.  
 
 
