@@ -41,6 +41,15 @@ end
 
 # 3. Refactored Solution
 
-
+def separate_comma(int)
+  num_to_string = int.to_s
+  length = num_to_string.length
+  i = 1
+  until i > (length - 1)/3 
+  	num_to_string.insert(length-3*i, ",")
+  	i += 1
+  end
+  num_to_string
+end
 
 # 4. Reflection 
