@@ -26,8 +26,18 @@
 
 # 2. Initial Solution
 
-
-
+def separate_comma(int)
+  num_to_string = int.to_s #converts integer to string
+  length = num_to_string.length #capture length of string prior to any commas being added
+  if length > 3 #if in the thousands or higher
+    i = 1
+    until i > (length - 1)/3 #need to loop one time for each comma needed
+      num_to_string.insert(length-3*i, ",") #insert comma starting from the end of the string toward the start of string.
+      i += 1
+    end
+  end
+  num_to_string #return the string with commas in place
+end
 
 # 3. Refactored Solution
 
