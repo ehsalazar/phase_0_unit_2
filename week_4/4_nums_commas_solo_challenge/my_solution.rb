@@ -8,7 +8,7 @@
 # 1. Pseudocode
 
 # What is the input? A random integer
-# What is the output? (i.e. What should the code return?) A comma-seperated integer, i.e., 1,000,000
+# What is the output? (i.e. What should the code return?) A comma-separated integer, i.e., 1,000,000
 # What are the steps needed to solve the problem?
 
 # Define separate_comma method that takes one parameter (integer)
@@ -53,3 +53,25 @@ def separate_comma(int)
 end
 
 # 4. Reflection 
+
+# OK, this one took me a few days and some math. Originally, I thought about using a case statement depending on the number of 
+# elements in the string but it became to verbose. I then started looking at looping options. I knew I wanted to loop once for 
+# every comma that would be needed. To calculate the number of loops took some experimenting. I then moved on to the commas. 
+# I knew I could use the insert method but I had to figure out when and how the commas would be inserted. Initially, I thought 
+# it would be best to reverse the string because I figured the first insert would always be at index 3. 
+
+# The challenge however, was as the commas were inserted, the length changed and I couldn't isolate a fixed index to insert the 
+# subsequent commas. I realized I needed to insert the last comma first and first comma last. I threw out the whole reverse idea
+# and started again. Once I started thinking about the last comma first, it took again some experimenting and math to calculate
+# the index portion of the insert block. Finally, I got it to work.
+
+# Some realizations I discovered in the process. First, I needed to create a variable for the length of the string before jumping 
+# into the loop. I couldn't use string.length every time I wanted to because the length would change with each iteration of the 
+# loop. Second, in refactoring, I realized I didn't need the original if statement. If the length of the string was less then or 
+# equal to three, the resulting calculation in the until boolean would be false and would just be skipped. Also in refactoring, 
+# I tried to simplify the whole loop process but when I tried to change the until statement to something else, like a .times 
+# method, the whole calculation process would be off.
+
+# Overall I feel confident in the challenges Learning Competencies. While this one was harder, I like what I was able to get out 
+# of it. There is likely a simpler solution for this challenge and I look forward to seeing how others solved for it. 
+
