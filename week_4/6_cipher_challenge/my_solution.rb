@@ -1,27 +1,24 @@
 # U2.W4: Cipher Challenge
 
 
-# I worked on this challenge with: .
-
+# I worked on this challenge with William Pangestu .
 
 
 # 1. Solution
 # Write your comments on what each thing is doing. 
 # If you have difficulty, go into IRB and play with the methods.
 
-
-
-def north_korean_cipher(coded_message)
-  input = coded_message.downcase.split("") # Check out this method in IRB to see how it works! Also refer to the ruby docs.
-  decoded_sentence = []
+def north_korean_cipher(coded_message) # Creating the method with a string as parameter.
+  input = coded_message.downcase.split("") # Takes inputted string and downcases all letters and splits each element into an array
+  decoded_sentence = [] # Creating an empty array.
   cipher = {"e" => "a",   # This is technically a shift of four letters...Can you think of a way to automate this? Is a hash
-            "f" => "b",   # the best data structure for this problem? What are the pros and cons of hashes?
+            "f" => "b",   # The best data structure for this problem? What are the pros and cons of hashes?
             "g" => "c", 
-            "h" => "d", 
-            "i" => "e", 
-            "j" => "f",
-            "k" => "g",
-            "l" => "h",
+            "h" => "d",   # alphabet = ("a".."z").to_a can be used to create an array rather than a hash. You could then iterate
+            "i" => "e",  
+            "j" => "f", 
+            "k" => "g",   # One pro of the hash is easily understood. i.e., "e" shifts to "a"
+            "l" => "h",   # A con is the size with 26 different keys and hard coded.
             "m" => "i",
             "n" => "j",
             "o" => "k",
@@ -41,40 +38,37 @@ def north_korean_cipher(coded_message)
             "c" => "y",
             "d" => "z"}
             
-  input.each do |x| # What is #each doing here?
-    found_match = false  # Why would this be assigned to false from the outset? What happens when it's true?
-    cipher.each_key do |y| # What is #each_key doing here?
-      if x == y  # What is this comparing? Where is it getting x? Where is it getting y? What are those variables really?
-        puts "I am comparing x and y. X is #{x} and Y is #{y}."
-        decoded_sentence << cipher[y]
-        found_match = true
-        break  # Why is it breaking here?
-      elsif x == "@" || x == "#" || x == "$" || x == "%"|| x == "^" || x == "&"|| x =="*" #What the heck is this doing?
-        decoded_sentence << " "
-        found_match = true
-        break
-      elsif (0..9).to_a.include?(x) # Try this out in IRB. What does   " (0..9).to_a "    do?
-        decoded_sentence << x
-        found_match = true
-        break
+  input.each do |x| # Iterating over each element of the input array.
+    found_match = false  # This is establishing that none of the input elements have been evaluated.
+    cipher.each_key do |y| # This loops throught the cipher hash keys
+      if x == y  # Comparing each character from input array to the cipher key. x = element of input, y = hash key
+        puts "I am comparing x and y. X is #{x} and Y is #{y}." # outputting a string identifing what was matched.
+        decoded_sentence << cipher[y] # Pushed the cipher value to empty array.
+        found_match = true # This is establishing that this particular element has now been evaluated.
+        break  # Exitting out of the cipher loop.
+      elsif x == "@" || x == "#" || x == "$" || x == "%"|| x == "^" || x == "&"|| x =="*" # Checking if the input element is a special character.
+        decoded_sentence << " " # If it is, it pushes a space into the new array.
+        found_match = true # This is establishing that this particular element has now been evaluated.
+        break  #Exitting out of the cipher loop.
+      elsif (0..9).to_a.include?(x) # Checking if the input element is a number
+        decoded_sentence << x #Keeps the number and pushes it into the new decoded array
+        found_match = true # This is establishing that this particular element has now been evaluated.
+        break # Exitting out of the cipher loop.
       end 
+    end # ends cipher loops
+    if not found_match  # If found_match is true, i.e., the element has already been evaluated.
+      decoded_sentence << x #Push that already evaluated element into the decoded array.
     end
-    if not found_match  # What is this looking for?
-      decoded_sentence << x
-    end
-  end
-  decoded_sentence = decoded_sentence.join("")
+  end # This end the input loop
+  decoded_sentence = decoded_sentence.join("") # Join the decoded array into a string
  
-  if decoded_sentence.match(/\d+/) #What is this matching? Look at Rubular for help. 
-    decoded_sentence.gsub!(/\d+/) { |num| num.to_i / 100 } #He's been known to exaggerate...
+  if decoded_sentence.match(/\d+/) # This is looking to see if there are any numbers in the decoded string.
+    decoded_sentence.gsub!(/\d+/) { |num| num.to_i / 100 } #This is substituting the original number to fraction of that number.
   end  
-  return decoded_sentence # What is this returning?        
+  return decoded_sentence # Outputting the final decoded string.   
 end
 
 # Your Refactored Solution
-
-
-
 
 
 # Driver Code:
