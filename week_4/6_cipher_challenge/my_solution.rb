@@ -70,6 +70,25 @@ end
 
 # Your Refactored Solution
 
+def north_korean_cipher(coded_message)
+  input = coded_message.downcase.split("")
+  decoded_sentence = []
+  cipher = ("a".."z").to_a
+  input.each do |x|
+   if cipher.include?(x)
+     decoded_sentence << cipher[cipher.index(x)-4]
+   elsif x == "@" || x == "#" || x == "$" || x == "%"|| x == "^" || x == "&"|| x =="*"
+     decoded_sentence << " "
+   else
+    decoded_sentence << x
+   end
+  end
+  decoded_sentence = decoded_sentence.join("")
+  if decoded_sentence.match(/\d+/)
+    decoded_sentence.gsub!(/\d+/) {|n| n.to_i / 100}
+  end
+  decoded_sentence
+end
 
 # Driver Code:
 p north_korean_cipher("m^aerx%e&gsoi!") == "i want a coke!" #This is driver code and should print true
