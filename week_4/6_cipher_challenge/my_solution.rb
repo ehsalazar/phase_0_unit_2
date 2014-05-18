@@ -8,65 +8,65 @@
 # Write your comments on what each thing is doing. 
 # If you have difficulty, go into IRB and play with the methods.
 
-# def north_korean_cipher(coded_message) # Creating the method with a string as parameter.
-#   input = coded_message.downcase.split("") # Takes inputted string and downcases all letters and splits each element into an array.
-#   decoded_sentence = [] # Creating an empty array.
-#   cipher = {"e" => "a",   # This is technically a shift of four letters...Can you think of a way to automate this? Is a hash
-#             "f" => "b",   # The best data structure for this problem? What are the pros and cons of hashes?
-#             "g" => "c", 
-#             "h" => "d",   # alphabet = ("a".."z").to_a can be used to create an array rather than a hash. You could then iterate
-#             "i" => "e",  
-#             "j" => "f", 
-#             "k" => "g",   # One pro of the hash is easily understood. i.e., "e" shifts to "a"
-#             "l" => "h",   # A con is the size with 26 different keys and hard coded.
-#             "m" => "i",
-#             "n" => "j",
-#             "o" => "k",
-#             "p" => "l",
-#             "q" => "m",
-#             "r" => "n",
-#             "s" => "o",
-#             "t" => "p",
-#             "u" => "q",
-#             "v" => "r",
-#             "w" => "s",
-#             "x" => "t",
-#             "y" => "u",
-#             "z" => "v",
-#             "a" => "w",
-#             "b" => "x",
-#             "c" => "y",
-#             "d" => "z"}
+def north_korean_cipher(coded_message) # Creating the method with a string as parameter.
+  input = coded_message.downcase.split("") # Takes inputted string and downcases all letters and splits each element into an array.
+  decoded_sentence = [] # Creating an empty array.
+  cipher = {"e" => "a",   # This is technically a shift of four letters...Can you think of a way to automate this? Is a hash
+            "f" => "b",   # The best data structure for this problem? What are the pros and cons of hashes?
+            "g" => "c", 
+            "h" => "d",   # alphabet = ("a".."z").to_a can be used to create an array rather than a hash. You could then iterate
+            "i" => "e",  
+            "j" => "f", 
+            "k" => "g",   # One pro of the hash is easily understood. i.e., "e" shifts to "a"
+            "l" => "h",   # A con is the size with 26 different keys and hard coded.
+            "m" => "i",
+            "n" => "j",
+            "o" => "k",
+            "p" => "l",
+            "q" => "m",
+            "r" => "n",
+            "s" => "o",
+            "t" => "p",
+            "u" => "q",
+            "v" => "r",
+            "w" => "s",
+            "x" => "t",
+            "y" => "u",
+            "z" => "v",
+            "a" => "w",
+            "b" => "x",
+            "c" => "y",
+            "d" => "z"}
             
-#   input.each do |x| # Iterating over each element of the input array.
-#     found_match = false  # This is establishing that none of the input elements have been evaluated.
-#     cipher.each_key do |y| # This loops through the cipher hash keys.
-#       if x == y  # Comparing each character from input array to the cipher key. x = element of input, y = hash key
-#         puts "I am comparing x and y. X is #{x} and Y is #{y}." # Outputting a string identifying what was matched.
-#         decoded_sentence << cipher[y] # Pushed the cipher value to empty array.
-#         found_match = true # This is establishing that this particular element has now been evaluated.
-#         break  # Exiting out of the cipher loop.
-#       elsif x == "@" || x == "#" || x == "$" || x == "%"|| x == "^" || x == "&"|| x =="*" # Checking if the input element is a special character.
-#         decoded_sentence << " " # If it is, it pushes a space into the new array.
-#         found_match = true # This is establishing that this particular element has now been evaluated.
-#         break  #Exiting out of the cipher loop.
-#       elsif (0..9).to_a.include?(x) # Checking if the input element is a number
-#         decoded_sentence << x #Keeps the number and pushes it into the new decoded array
-#         found_match = true # This is establishing that this particular element has now been evaluated.
-#         break # Exiting out of the cipher loop.
-#       end 
-#     end # This ends th cipher loop.
-#     if not found_match  # If found_match is true, i.e., the element has already been evaluated.
-#       decoded_sentence << x #Push that already evaluated element into the decoded array.
-#     end
-#   end # This ends the input loop.
-#   decoded_sentence = decoded_sentence.join("") # Join the decoded array into a string.
+  input.each do |x| # Iterating over each element of the input array.
+    found_match = false  # This is establishing that none of the input elements have been evaluated.
+    cipher.each_key do |y| # This loops through the cipher hash keys.
+      if x == y  # Comparing each character from input array to the cipher key. x = element of input, y = hash key
+        puts "I am comparing x and y. X is #{x} and Y is #{y}." # Outputting a string identifying what was matched.
+        decoded_sentence << cipher[y] # Pushed the cipher value to empty array.
+        found_match = true # This is establishing that this particular element has now been evaluated.
+        break  # Exiting out of the cipher loop.
+      elsif x == "@" || x == "#" || x == "$" || x == "%"|| x == "^" || x == "&"|| x =="*" # Checking if the input element is a special character.
+        decoded_sentence << " " # If it is, it pushes a space into the new array.
+        found_match = true # This is establishing that this particular element has now been evaluated.
+        break  #Exiting out of the cipher loop.
+      elsif (0..9).to_a.include?(x) # Checking if the input element is a number
+        decoded_sentence << x #Keeps the number and pushes it into the new decoded array
+        found_match = true # This is establishing that this particular element has now been evaluated.
+        break # Exiting out of the cipher loop.
+      end 
+    end # This ends th cipher loop.
+    if not found_match  # If found_match is true, i.e., the element has already been evaluated.
+      decoded_sentence << x #Push that already evaluated element into the decoded array.
+    end
+  end # This ends the input loop.
+  decoded_sentence = decoded_sentence.join("") # Join the decoded array into a string.
  
-#   if decoded_sentence.match(/\d+/) # This is looking to see if there are any numbers in the decoded string.
-#     decoded_sentence.gsub!(/\d+/) { |num| num.to_i / 100 } # This is substituting the original number to a fraction of that number.
-#   end  
-#   return decoded_sentence # Output the final decoded string.   
-# end
+  if decoded_sentence.match(/\d+/) # This is looking to see if there are any numbers in the decoded string.
+    decoded_sentence.gsub!(/\d+/) { |num| num.to_i / 100 } # This is substituting the original number to a fraction of that number.
+  end  
+  return decoded_sentence # Output the final decoded string.   
+end
 
 # Your Refactored Solution
 
