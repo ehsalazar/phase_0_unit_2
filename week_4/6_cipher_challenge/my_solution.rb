@@ -1,7 +1,7 @@
 # U2.W4: Cipher Challenge
 
 
-# I worked on this challenge with William Pangestu .
+# I worked on this challenge with William Pangestu.
 
 
 # 1. Solution
@@ -9,7 +9,7 @@
 # If you have difficulty, go into IRB and play with the methods.
 
 def north_korean_cipher(coded_message) # Creating the method with a string as parameter.
-  input = coded_message.downcase.split("") # Takes inputted string and downcases all letters and splits each element into an array
+  input = coded_message.downcase.split("") # Takes inputted string and downcases all letters and splits each element into an array.
   decoded_sentence = [] # Creating an empty array.
   cipher = {"e" => "a",   # This is technically a shift of four letters...Can you think of a way to automate this? Is a hash
             "f" => "b",   # The best data structure for this problem? What are the pros and cons of hashes?
@@ -40,32 +40,32 @@ def north_korean_cipher(coded_message) # Creating the method with a string as pa
             
   input.each do |x| # Iterating over each element of the input array.
     found_match = false  # This is establishing that none of the input elements have been evaluated.
-    cipher.each_key do |y| # This loops throught the cipher hash keys
+    cipher.each_key do |y| # This loops through the cipher hash keys.
       if x == y  # Comparing each character from input array to the cipher key. x = element of input, y = hash key
-        puts "I am comparing x and y. X is #{x} and Y is #{y}." # outputting a string identifing what was matched.
+        puts "I am comparing x and y. X is #{x} and Y is #{y}." # Outputting a string identifying what was matched.
         decoded_sentence << cipher[y] # Pushed the cipher value to empty array.
         found_match = true # This is establishing that this particular element has now been evaluated.
-        break  # Exitting out of the cipher loop.
+        break  # Exiting out of the cipher loop.
       elsif x == "@" || x == "#" || x == "$" || x == "%"|| x == "^" || x == "&"|| x =="*" # Checking if the input element is a special character.
         decoded_sentence << " " # If it is, it pushes a space into the new array.
         found_match = true # This is establishing that this particular element has now been evaluated.
-        break  #Exitting out of the cipher loop.
+        break  #Exiting out of the cipher loop.
       elsif (0..9).to_a.include?(x) # Checking if the input element is a number
         decoded_sentence << x #Keeps the number and pushes it into the new decoded array
         found_match = true # This is establishing that this particular element has now been evaluated.
-        break # Exitting out of the cipher loop.
+        break # Exiting out of the cipher loop.
       end 
-    end # ends cipher loops
+    end # This ends th cipher loop.
     if not found_match  # If found_match is true, i.e., the element has already been evaluated.
       decoded_sentence << x #Push that already evaluated element into the decoded array.
     end
-  end # This end the input loop
-  decoded_sentence = decoded_sentence.join("") # Join the decoded array into a string
+  end # This ends the input loop.
+  decoded_sentence = decoded_sentence.join("") # Join the decoded array into a string.
  
   if decoded_sentence.match(/\d+/) # This is looking to see if there are any numbers in the decoded string.
-    decoded_sentence.gsub!(/\d+/) { |num| num.to_i / 100 } #This is substituting the original number to fraction of that number.
+    decoded_sentence.gsub!(/\d+/) { |num| num.to_i / 100 } # This is substituting the original number to a fraction of that number.
   end  
-  return decoded_sentence # Outputting the final decoded string.   
+  return decoded_sentence # Output the final decoded string.   
 end
 
 # Your Refactored Solution
@@ -100,4 +100,17 @@ p north_korean_cipher("ribx^wxst:$wsyxl%osvie,$xlir$neter,#xlir%xli%asvph!")
 p north_korean_cipher("ger^wsqifshc*nywx^kix^qi&10000*fekw@sj$gssp%vergl@hsvmxsw?")
 
 # Reflection
+
+# This was a great challenge to pair on. While we both understood the original code and could comment it out rather quickly, 
+# to refactor took more work. We eliminated the large cipher hash by creating an array of the letters of the alphabet. We 
+# then looked for opportunities to eliminate aspects that weren't needed or were repetitive. We had to experiment on how to 
+# shuffle the cipher 4 letters as well as ensure that special characters would be converted to spaces. In all, it took us a 
+# couple of hours but I think we both learned from the experience. 
+
+# I'm confident in the Learning Competencies. Like many of the challenges this week, this took more time that I thought it would 
+# but I learned more in the process. The only tedious aspect of the challenge was in debugging our refactored code. Here is where
+# four eyes were better than two. Most of the issues were caused by simple mistakes like ensuring we typed decoded_sentence rather 
+# than decoded.sentence. Reading out the error messages can go a long way in pointing you in the right direction when debugging.
+
+
  
