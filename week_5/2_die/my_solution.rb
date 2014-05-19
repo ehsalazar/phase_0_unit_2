@@ -7,7 +7,7 @@
 
 # Input: The creation of a new die with the parameter of an array of (labels)
 # Output: die.side returns the number of labels or elements in the array
-#         die.rol returns a random element from the labels array
+#         die.roll returns a random element from the labels array
 # Steps:
 
 # create Die class
@@ -74,3 +74,12 @@ puts die.sides == 6 # => true
 puts ["A", 2, "c", 4, "D", 6].include?(die.roll) # => true
 
 # 5. Reflection 
+
+# This challenge built upon the last. It too wasn't as challenging. I had to create an instance variable @labels in order
+# to access the array for the roll method. I also added a new driver test to verify if output of die.roll was included in 
+# the original array.
+
+# I'm confident in this challenges Learning Competencies. I'm finding the more and more comfortable I am with built in Ruby
+# methods, the easier it is come up with a possible solution. I enjoyed both this and the previous challenge. I also continue
+# to enjoy the testing, both through rspec and driver. It too helps make everything seem easier or at least more understandable.
+
