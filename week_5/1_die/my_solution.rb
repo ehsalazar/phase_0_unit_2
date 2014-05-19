@@ -47,7 +47,16 @@ end
 
 # 4. Refactored Solution
 
-
+class Die
+  attr_reader :sides # Eliminates the need to create a sides method that returns @sides
+  def initialize(sides) 
+    raise ArgumentError.new("number of sides must be greater than 1") unless sides > 0  # Raises an error
+    @sides = sides # Creates an instance variable for all new members of the Die class
+  end
+  def roll
+    rand(1..sides) # Returns a random number between 1 and sides inclusively
+  end
+end
 
 # 1. DRIVER TESTS GO BELOW THIS LINE
 die = Die.new(3) # Creates die as a new member of the Die class with 3 sides
