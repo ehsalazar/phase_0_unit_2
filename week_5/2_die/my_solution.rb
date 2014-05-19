@@ -51,10 +51,17 @@ end
 
 # 4. Refactored Solution
 
-
-
-
-
+class Die
+  attr_reader :sides # Eliminates the need to create a sides method that returns @sides
+  def initialize(labels)
+    raise ArgumentError.new("array must include at least one element") unless labels.empty? == false # Raises an error
+    @sides = labels.size # Creates instance variable @sides for all new members of the Die class
+    @labels = labels # Creates instance variable @labels for all new members of the Die class
+  end
+  def roll
+    @labels.sample # Returns a random element from the labels array
+  end
+end
 
 # 1. DRIVER TESTS GO BELOW THIS LINE
 
@@ -65,8 +72,5 @@ puts die.roll # => one of the six elements from the array
 puts die.sides > 1 # => true
 puts die.sides == 6 # => true
 puts ["A", 2, "c", 4, "D", 6].include?(die.roll) # => true
-
-
-
 
 # 5. Reflection 
