@@ -69,3 +69,14 @@ puts die.sides == 3 # => true
 puts die.roll < 4 # => true
 
 # 5. Reflection 
+
+# I somehow feel more comfortable with the topic of classes and modules. I had previously spent a good amount of time
+# working through Codecademy's Ruby Object I and Object II lessons, which seems to have helped. With that, this challenge
+# was rather straight forward. 
+
+# The only bit of working I had to process through was exactly where and how to raise the ArgumentError. After trying for
+# over an hour moving it to different locations and using alternative statements, I realized that I had misspelled 
+# "argument." It's the simple mistakes!
+
+# I feel confident in this lessons Learning Competencies. I'm glad we are moving into classes and will be working on
+# building more complex objects and programs.
