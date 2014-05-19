@@ -45,27 +45,34 @@ end
 # Person 3
 
 def my_array_sorting_method(source)
-  # Your code here!
+  num = source.grep(Fixnum)
+  str = source.grep(String)
+  return num.sort + str.sort
 end
 
 def my_hash_sorting_method(source)
-  # Your code here!
+  source.sort_by {|key,value| value}
 end
 
 # Identify and describe the ruby method you implemented. 
-# 
-#
-#
+
+# For the array sorting method, I first created an array called num that returns an array of every element in the source 
+# that is equal to Fix number. Next, I created another array called str that returns an array of every element in the 
+# source that is equal to string. I used the sort method to sort the num and str array. After that, I concatenate both of 
+# them into one array
+
+# For the hash sorting method, I used the sort_by method to sort the hash by its value from smallest to largest
 
 
 # Person 4
 
 def my_array_deletion_method(source, thing_to_delete)
-  #Your code here!
+  source.delete_if {|element| element.to_s.include? (thing_to_delete)} 
 end
 
+
 def my_hash_deletion_method(source, thing_to_delete)
-  #Your code here!
+    source.delete_if {|key,value| key==thing_to_delete }
 end
 
 # Identify and describe the ruby method you implemented. 
@@ -89,8 +96,12 @@ p my_array_deletion_method(i_want_pets, "a") == ["I", 4, "pets", "but", "I", "on
 p my_hash_deletion_method(my_family_pets_ages, "George") == {"Evi" => 8, "Hoobie" => 5, "Bogart" => 6, "Poly" => 6, "Annabelle" => 2, "Ditto" => 5}
 
 # Reflect!
-# 
-# 
-# 
-# 
-# 
+
+# Working on section one was fun. I figured a few different ways of solving the challenge but wanted to be able 
+# to use the same method for both the array and the hash. William's solution for section 3 looks fairly easy to
+# read and understand. We didn't have a fourth member to our group so I came up with its solution. Once we get
+# Jared's solution to section 2, we'll run the test code to see if they all work together.
+
+# I'm confident in this challenges Learning Competencies. I enjoyed looking through the Ruby Docs a bit more and
+# challenging myself to look beyond the few methods I'm most comfortable using. 
+
