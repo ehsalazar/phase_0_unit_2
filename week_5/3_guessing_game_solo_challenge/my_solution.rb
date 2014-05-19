@@ -13,7 +13,7 @@
 # Create a GuessingGame class
 #   define the initialize method that takes one parameter (answer)
 # 	  set the instance variable @answer equal to answer
-# 	end initalize
+# 	end initialize
 #
 # 	define the guess method that takes one parameter (number)
 # 	  set the instance variable @last_guess equal to number
@@ -62,13 +62,20 @@ class GuessingGame
   end
 end
 
-
 # 4. Refactored Solution
 
-
-
-
-
+class GuessingGame
+  def initialize(answer)
+    @answer = answer # Creates an instance variable @answer with a value of answer
+  end
+  def guess(num)
+    @last_guess = num # Creates an instance variable @last_answer with a value of num
+    num == @answer ? :correct : num > @answer ? :high : :low # If num is equal to the value of @answer is true, return :correct
+  end											# otherwise, if num is greater than @answer, return :high, if not, return :low
+  def solved?
+    @last_guess == @answer ? true : false # If the value of @last_answer is equal to the value of @answer, return true
+  end									  # otherwise return false
+end
 
 # 1. DRIVER TESTS GO BELOW THIS LINE
 
