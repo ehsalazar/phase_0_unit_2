@@ -85,8 +85,15 @@ puts game.guess(7) == :low # => true
 puts game.guess(81) == :high # => true
 puts game.guess(21) == :correct # => true
 
-
-
-
-
 # 5. Reflection 
+
+# This challenge took a bit thinking and experimenting than Die 1 and 2. It was rather simple to establish if the guess was low,
+# high or correct. To establish solved? was harder. Reading through the rspec test, I figured I had to access part of the guess
+# method to be used within the solved? method. After some experimenting, I came up with declaring an instance variable in one
+# method that could be used in the second method. It seems to have worked. 
+
+# Although my solution is rather simple (no loops or enumerable methods), I do feel confident in the Learning Competencies. I was 
+# able to create the class and its corresponding instance methods and variables. I was also able to pass all of the rspec tests as
+# well as the driver tests I created. I found the challenge stimulating and interesting with no tedious components. I'm looking
+# forward to the rest of the week's object challenges. 
+
