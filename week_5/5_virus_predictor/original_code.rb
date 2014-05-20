@@ -1,10 +1,14 @@
 # U2.W5: Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
+# I worked on this challenge by myself.
 
 # EXPLANATION OF require_relative
-#
-#
+
+# reuire_relative is linking two separate files together. It's telling the current file that information on this
+# other file is needed to complete the work.
+
+# The state data is held in a nested hash. The state name as a string key has a hash as its value. The data hash is made up of symbols their values.
+
 require_relative 'state_data'
 
 class VirusPredictor
@@ -17,14 +21,21 @@ class VirusPredictor
     @next_region = regional_spread
   end
 
-  def virus_effects  #HINT: What is the SCOPE of instance variables?
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
+  # This is a public instance method of the class. Each state or member of the class is initialized with instance variables. Because they are 
+  # instance variables, they likely don't need to be included as parameters in any of the methods, either public or private. Each state or member
+  # can access the methods only with their specific variables. 
+  def virus_effects     
+    predicted_deaths 
+    speed_of_spread 
   end
 
-  private  #what is this?  what happens if it were cut and pasted above the virus_effects method
+  # Public methods allow for an interface with the program. If you need to access something about the class or its instances, it happens here. 
+  # On the other hand, private methods are to be undisturbed. They are usually unreachable. For example, a bank program might have public methods 
+  # to deal with account names and types but private methods that store and update pin numbers. 
+  private 
 
-  def predicted_deaths(population_density, population, state)
+  # This method takes the state's population data and calculates how many deaths could occur. The higher the population density the more deaths.
+  def predicted_deaths                                                           
     if @population_density >= 200
       number_of_deaths = (@population * 0.4).floor
     elsif @population_density >= 150
@@ -41,7 +52,9 @@ class VirusPredictor
 
   end
 
-  def speed_of_spread(population_density, state) #in months
+  # This method takes the state's population data and calculates how quickly the virus will spread. The output is in month or fraction thereof. The
+  # higher the population density, the faster it will spread.
+  def speed_of_spread  
     speed = 0.0
 
     if @population_density >= 200
@@ -68,14 +81,6 @@ end
  # initialize VirusPredictor for each state
 
 
-alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population], STATE_DATA["Alabama"][:region], STATE_DATA["Alabama"][:regional_spread]) 
-alabama.virus_effects
 
-jersey = VirusPredictor.new("New Jersey", STATE_DATA["New Jersey"][:population_density], STATE_DATA["New Jersey"][:population], STATE_DATA["New Jersey"][:region], STATE_DATA["New Jersey"][:regional_spread]) 
-jersey.virus_effects
 
-california = VirusPredictor.new("California", STATE_DATA["California"][:population_density], STATE_DATA["California"][:population], STATE_DATA["California"][:region], STATE_DATA["California"][:regional_spread]) 
-california.virus_effects
 
-alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population], STATE_DATA["Alaska"][:region], STATE_DATA["Alaska"][:regional_spread]) 
-alaska.virus_effects
