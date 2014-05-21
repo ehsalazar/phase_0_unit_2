@@ -116,3 +116,17 @@ p card.check_card == false				# => true
 card = CreditCard.new(440804123456789) 	# => should return the Argument Error
 
 # 5. Reflection 
+
+# This was one of the more difficult challenges for the week. It helped greatly to break down the steps into their own
+# individual methods. In other words, figure out small blocks and then get them to work together. I had to do some
+# research for this one. I knew out of the gate, I wanted to convert the entered number into an array but ultimately 
+# I would need it to be an array of integers not string representations of the numbers. The next big obstacle to 
+# research was how best to sum up the individual elements of the array while accounting for double digit elements.
+
+# This challenge helped me better understand the process of linking or chaining methods. While I'm sure their are
+# other ways to solve for each step, I liked the simplicity of the chain. Being of course that I could figure out
+# each link in said chain.
+
+# I feel confident in this challenges Learning Competencies. I enjoyed being pushed by this challenge and having to 
+# figure out new ways to accomplish steps. I continue to find the test super helpful in 
+# building the code as I go. I found no aspect tedious.
