@@ -10,7 +10,7 @@
 # Steps:
 
 # Create a CreditCard class
-#   define the initialize method taking ine parameter (card number)
+#   define the initialize method taking one parameter (card number)
 #     set instance variable @card equal to an array containing each individual integer
 #	  unless @card's size is equals 16
 #       raise an ArgumentError, "Please enter a 16 digit card number"
@@ -41,7 +41,7 @@
 
 # 3. Initial Solution
 
-# Don't forget to check on intialization for a card length
+# Don't forget to check on initialization for a card length
 # of exactly 16 digits
 
 class CreditCard
@@ -75,16 +75,44 @@ end
 
 # 4. Refactored Solution
 
+class CreditCard
+  def initialize(card_num)
+    @card = card_num.to_s.chars.map(&:to_i) # Creates an array containing each individual integer
+    raise ArgumentError.new("Please enter a 16 digit card number") unless @card.size == 16
+  end
+  def double_digit 
+  	@card.map!.with_index {|e,i| i.even? == true ? e*2 : e } # Double the integers in the even numbered indexes
+  end
+  def card_sum 
+  	double_digit
+  	@card.join.chars.map(&:to_i).reduce(:+) # Adds each individual integer together
+  end
+  def check_card
+    card_sum % 10 == 0 ? true : false # If the sum is divisible by 10, returns true, otherwise false
+  end
+end
 
+# Could even refactor farther if separate methods weren't needed for each step
 
-
-
+class CreditCard
+  def initialize(card_num)
+    @card = card_num.to_s.chars.map(&:to_i) # Creates an array containing each individual integer
+    raise ArgumentError.new("Please enter a 16 digit card number") unless @card.size == 16
+  end
+  def check_card
+  	@card.map!.with_index {|e,i| i.even? == true ? e*2 : e } # Double the integers in the even numbered indexes
+  	@card.join.chars.map(&:to_i).reduce(:+) % 10 == 0 ? true : false # Adds each individual integer together and
+  end																 # if the sum is divisible by 10 return true
+end
 
 # 1. DRIVER TESTS GO BELOW THIS LINE
 
+card = CreditCard.new(4408041234567893)
+p card.check_card == true 				# => true
 
+card = CreditCard.new(4408041234567892)
+p card.check_card == false				# => true
 
-
-
+card = CreditCard.new(440804123456789) 	# => should return the Argument Error
 
 # 5. Reflection 
