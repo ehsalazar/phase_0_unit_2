@@ -27,11 +27,11 @@ end
 
 # DRIVER TESTS GO BELOW THIS LINE
 
-puts create_word(boggle_board, [2,1], [1,1], [1,2], [0,3]) == "code"					# => true 
-puts create_word(boggle_board, [0,1], [0,2], [1,2]) == "rad"							# => true
-puts create_word(boggle_board, [3,0], [3,1], [2,2], [3,2]) == "talk"					# => true
-puts create_word(boggle_board, [2,2], [1,1], [2,1], [3,1], [3,0], [2,0]) == "locate"	# => true
-puts create_word(boggle_board, [0,1], [1,1], [2,1], [3,2], [3,3], [2,3]) == "rocker"	# => true
+puts create_word(boggle_board, [2,1], [1,1], [1,2], [0,3]) == "code" # => true 
+puts create_word(boggle_board, [0,1], [0,2], [1,2]) == "rad" # => true
+puts create_word(boggle_board, [3,0], [3,1], [2,2], [3,2]) == "talk" # => true
+puts create_word(boggle_board, [2,2], [1,1], [2,1], [3,1], [3,0], [2,0]) == "locate" # => true
+puts create_word(boggle_board, [0,1], [1,1], [2,1], [3,2], [3,3], [2,3]) == "rocker" # => true
 
 # Reflection 
 
@@ -61,9 +61,9 @@ end
 
 # DRIVER TESTS GO BELOW THIS LINE
 
-p get_row(boggle_board, 1) == ["i", "o", "d", "t"] 	# => true
-p get_row(boggle_board, 4) == nil					# => true
-p get_row(boggle_board, 0) == ["b", "r", "a", "e"]	# => true
+p get_row(boggle_board, 1) == ["i", "o", "d", "t"] # => true
+p get_row(boggle_board, 4) == nil # => true
+p get_row(boggle_board, 0) == ["b", "r", "a", "e"] # => true
 
 # Reflection 
 
@@ -75,6 +75,10 @@ p get_row(boggle_board, 0) == ["b", "r", "a", "e"]	# => true
 # Part 3: Now write a method that takes a column number and returns all the elements in the column.
 
 # Pseudocode
+
+# Define get_col method that takes two parameters (board and column)
+#   Loop through the board array using the map method passing a block {|array| array[column]}
+# End get_col method
 
 # Initial Solution
 
@@ -88,9 +92,9 @@ end
 
 # DRIVER TESTS GO BELOW THIS LINE
 
-p get_col(boggle_board, 3) == ["e", "t", "r", "e"]  # => true
-p get_col(boggle_board, 6) == [nil, nil, nil, nil]  # => true
-p get_col(boggle_board, 0) == ["b", "i", "e", "t"]  # => true
+p get_col(boggle_board, 3) == ["e", "t", "r", "e"] # => true
+p get_col(boggle_board, 6) == [nil, nil, nil, nil] # => true
+p get_col(boggle_board, 0) == ["b", "i", "e", "t"] # => true
 
 # Reflection 
 
