@@ -70,6 +70,7 @@ p get_row(boggle_board, 0) == ["b", "r", "a", "e"]	# => true
 # By having both the board and row as parameters, the get_row method can be super simple. You are basically just asking for
 # a specific index of the array. 
 
+<<<<<<< HEAD
 #-------------------------------------------------------------------------------
 
 # Part 3: Now write a method that takes a column number and returns all the elements in the column.
@@ -105,3 +106,5 @@ p get_col(boggle_board, 0) == ["b", "i", "e", "t"]  # => true
 
 # Overall this was a fun challenge. It wasn't overly complicated but it also had us working on something I could logically 
 # associate with outside of programming. I feel confident in the Learning Competencies and found no aspect tedious. 
+=======
+>>>>>>> upstream/master
