@@ -52,7 +52,7 @@ class PezDispenser
     flavors.unshift(flavor)
   end
   def see_all_pez
-  	flavors
+    flavors
   end
 end
 
@@ -68,7 +68,7 @@ class PezDispenser
     @pez_count = flavors.size
   end 
   def get_pez
-  	@pez_count -= 1
+    @pez_count -= 1
     flavors.pop
   end
   def add_pez(flavor)
@@ -76,7 +76,7 @@ class PezDispenser
     @pez_count += 1
   end
   def see_all_pez
-  	flavors
+    flavors
   end
 end
 
